@@ -13,7 +13,7 @@ export default function SignUpScreen() {
   function handleSignUp() {
     if (nome.trim() && email.trim() && senha.trim()) {
       // Lógica de cadastro aqui
-      router.replace('/(tabs)');
+      router.replace('/worry_name');
     } else {
       alert('Por favor, preencha todos os campos!');
     }

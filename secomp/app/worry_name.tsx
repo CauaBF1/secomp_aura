@@ -28,7 +28,7 @@ export default function SignUpScreen() {
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.header}>
-          <Image 
+          <Image    
             source={require('../assets/images/worry_cadastro.png')} 
             style={styles.worry_cadastroImg} 
             resizeMode="contain" 
@@ -51,15 +51,6 @@ export default function SignUpScreen() {
 
           <TouchableOpacity style={styles.buttonBlack} onPress={handleSignUp}>
             <Text style={styles.buttonBlackText}>Confirmar</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity 
-            style={styles.linkContainer}
-            onPress={() => router.back()}
-          >
-            <Text style={styles.linkText}>
-              Já tem uma conta? <Text style={styles.linkBold}>Fazer login</Text>
-            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
