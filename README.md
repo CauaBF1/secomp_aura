@@ -1,6 +1,6 @@
 # Readme: Don't Worry!
 
-![Don't Worry!](dontworryapp.png)
+![Don't Worry!](dontworry_app.png)
 
 ## Parte 1: História e Motivação
 
