@@ -1,5 +1,7 @@
 # Readme: Don't Worry!
 
+![Don't Worry!](dontworryapp.png)
+
 ## Parte 1: História e Motivação
 
 ### A Lenda de Worryland e os Worries
