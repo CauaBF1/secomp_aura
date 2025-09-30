@@ -1,10 +1,13 @@
 import React from 'react';
-import { StyleSheet, Dimensions, Image } from 'react-native';
+import { StyleSheet, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { Text, View } from './Themed';
+import { useRouter } from 'expo-router';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 export default function HomeLayout() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       {/* Div 1 - Calendário no topo */}
@@ -32,9 +35,13 @@ export default function HomeLayout() {
           </View>
 
           {/* Div 4 - Start Focusing */}
-          <View style={styles.leftBottomDiv}>
+          <TouchableOpacity 
+            style={styles.leftBottomDiv}
+            onPress={() => router.push('/focus')}
+            activeOpacity={0.8}
+          >
             <Text style={styles.focusingText}>Start{'\n'}Focusing</Text>
-          </View>
+          </TouchableOpacity>
         </View>
 
         {/* Div 2 - Boneco Worry */}
