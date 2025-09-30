@@ -8,7 +8,7 @@ Dizem que para cada estudante sobrecarregado, uma pequena criatura nasce em uma 
 
 Os habitantes desta terra são os **Worries**. São criaturas nascidas da intenção e do potencial, mas paralisadas pela incerteza. Cada Worry carrega sobre a cabeça pontos de interrogação que brilham, simbolizando as perguntas que consomem sua energia: "Por onde eu começo?", "O que é mais importante?", "E se eu não conseguir?". Eles vagam sem rumo por Worryland, presos em um estado de "análise-parálise", querendo muito avançar, mas sem um caminho claro para seguir.
 
-![A multidão de Worries perdidos em Worryland](https://storage.googleapis.com/rest-proxy-prod-tools-us-central1-3/projects/630983334237/files/image_14ee3c.png)
+![A multidão de Worries perdidos em Worryland](worryland.png)
 
 ### A Jornada do Nosso Worry
 
