@@ -4,18 +4,19 @@ import { useRouter } from 'expo-router';
 
 const { width, height } = Dimensions.get('window');
 
-export default function LoginScreen() {
-  const [usuario, setUsuario] = useState('');
+export default function SignUpScreen() {
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
   const router = useRouter();
 
-  function handleLogin() {
-    if (usuario.trim()) {
-      router.replace('/(tabs)');
+  function handleSignUp() {
+    if (nome.trim() && email.trim() && senha.trim()) {
+      // Lógica de cadastro aqui
+      router.replace('/worry_name');
+    } else {
+      alert('Por favor, preencha todos os campos!');
     }
-  }
-
-  function handleGoToCadastro() {
-    router.push('/cadastro');
   }
 
   return (
@@ -30,46 +31,56 @@ export default function LoginScreen() {
       >
         <View style={styles.header}>
           <Image 
-            source={require('../assets/images/dont_worry.png')} 
-            style={styles.dontWorryImg} 
+            source={require('../assets/images/worry_cadastro.png')} 
+            style={styles.worry_cadastroImg} 
             resizeMode="contain" 
           />
           <Image 
-            source={require('../assets/images/app_centrado_aluno.png')} 
+            source={require('../assets/images/text_cadastro.png')} 
             style={styles.centradoImg} 
-            resizeMode="contain" 
-          />
-          <Image 
-            source={require('../assets/images/worry_login.png')} 
-            style={styles.worryImg} 
             resizeMode="contain" 
           />
         </View>
         
         <View style={styles.form}>
-          <Text style={styles.label}>Insira seu e-mail:</Text>
+          
           <TextInput
             style={styles.input}
-            placeholder="email@dominio.com"
-            value={usuario}
-            onChangeText={setUsuario}
+            placeholder="Seu nome completo"
+            value={nome}
+            onChangeText={setNome}
+            autoCapitalize="words"
+          />
+
+          <TextInput
+            style={styles.input}
+            placeholder="Seu e-mail"
+            value={email}
+            onChangeText={setEmail}
             autoCapitalize="none"
             keyboardType="email-address"
           />
-          <TouchableOpacity style={styles.buttonBlack} onPress={handleLogin}>
-            <Text style={styles.buttonBlackText}>Continuar</Text>
+
+          <TextInput
+            style={styles.input}
+            placeholder="Crie uma senha"
+            value={senha}
+            onChangeText={setSenha}
+            secureTextEntry
+            autoCapitalize="none"
+          />
+
+          <TouchableOpacity style={styles.buttonBlack} onPress={handleSignUp}>
+            <Text style={styles.buttonBlackText}>Confirmar</Text>
           </TouchableOpacity>
-          
-          <Text style={styles.orText}>or</Text>
-          
-          <TouchableOpacity style={styles.buttonGray}>
-            <Text style={styles.buttonGrayText}>Continuar com Google</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonGray}>
-            <Text style={styles.buttonGrayText}>Continuar com Apple</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonPurple} onPress={handleGoToCadastro}>
-            <Text style={styles.buttonPurpleText}>Criar uma conta</Text>
+
+          <TouchableOpacity 
+            style={styles.linkContainer}
+            onPress={() => router.push('/login')}
+          >
+            <Text style={styles.linkText}>
+              Já tem uma conta? <Text style={styles.linkBold}>Fazer login</Text>
+            </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -85,40 +96,45 @@ const styles = StyleSheet.create({
   scrollContent: {
     flexGrow: 1,
     paddingHorizontal: width * 0.06,
-    paddingTop: height * 0.06,
+    paddingTop: height * 0.05,
     paddingBottom: 24,
   },
   header: {
-    marginBottom: height * 0.02,
-    minHeight: height * 0.25,
+    marginBottom: height * 0.01,
+    minHeight: height * 0.2,
+    alignItems: 'center',
+    justifyContent: 'center', // centraliza verticalmente
     position: 'relative',
+    flexDirection: 'column', // garante centralização vertical
   },
-  dontWorryImg: {
-    width: width * 0.46,
-    height: height * 0.11,
+  worry_cadastroImg: {
+    alignSelf: 'center',
+    width: width * 3.5, // aumentado de 3 para 3.5
+    height: height * 0.32, // aumentado de 0.25 para 0.32
     marginTop: height * 0.01,
-    marginLeft: width * 0.07,
+    marginLeft: 0,
     marginBottom: 0,
   },
   centradoImg: {
-    marginLeft: width * 0.07,
-    marginTop: height * 0.05,
-    width: width * 0.71,
-    height: height * 0.04,
+    alignSelf: 'center',
+    marginLeft: 0,
+    marginTop: height * 0.03,
+    width: width * 1.1, // aumentado de 1 para 1.1
+    height: height * 0.09, // aumentado de 0.07 para 0.09
     marginBottom: 12,
   },
-  worryImg: {
-    width: width * 0.625,
-    height: height * 0.25,
-    position: 'absolute',
-    right: -width * 0.35,
-    top: -height * 0.02,
-    transform: [{ rotate: '320deg' }],
-  },
   form: {
-    marginTop: height * 0.05,
+    marginTop: height * 0.02,
     alignItems: 'center',
     width: '100%',
+  },
+  title: {
+    fontSize: width * 0.06,
+    fontWeight: 'bold',
+    color: '#000',
+    marginBottom: height * 0.025,
+    alignSelf: 'flex-start',
+    marginLeft: width * 0.02,
   },
   label: {
     fontSize: width * 0.04,
@@ -135,7 +151,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 12,
-    marginBottom: 16,
+    marginBottom: 12,
     fontSize: width * 0.04,
     backgroundColor: '#fff',
     color: '#444',
@@ -148,6 +164,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 8,
     marginBottom: 12,
   },
   buttonBlackText: {
@@ -176,19 +193,17 @@ const styles = StyleSheet.create({
     fontSize: width * 0.04,
     fontWeight: 'bold',
   },
-  buttonPurple: {
-    width: '100%',
-    maxWidth: 400,
-    height: height * 0.055,
-    backgroundColor: '#A685AB',
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: height * 0.04,
+  linkContainer: {
+    marginTop: height * 0.025,
+    padding: 10,
   },
-  buttonPurpleText: {
-    color: '#fff',
-    fontSize: width * 0.04,
+  linkText: {
+    color: '#666',
+    fontSize: width * 0.038,
+    textAlign: 'center',
+  },
+  linkBold: {
+    color: '#A685AB',
     fontWeight: 'bold',
   },
 });
