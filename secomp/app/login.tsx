@@ -4,11 +4,10 @@ import { useRouter } from 'expo-router';
 
 export default function LoginScreen() {
   const [usuario, setUsuario] = useState('');
-  const [senha, setSenha] = useState('');
   const router = useRouter();
 
   function handleLogin() {
-    if (usuario.trim() && senha.trim()) {
+    if (usuario.trim()) {
       router.replace('/(tabs)');
     }
   }
