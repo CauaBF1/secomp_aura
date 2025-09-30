@@ -76,7 +76,7 @@ export default function SignUpScreen() {
 
           <TouchableOpacity 
             style={styles.linkContainer}
-            onPress={() => router.back()}
+            onPress={() => router.push('/login')}
           >
             <Text style={styles.linkText}>
               Já tem uma conta? <Text style={styles.linkBold}>Fazer login</Text>
