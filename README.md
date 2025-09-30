@@ -22,7 +22,7 @@ Com uma coragem que nem ele sabia que possuía, ele decidiu fazer o que nenhum o
 
 Sua jornada foi solitária. Ele atravessou os campos da incerteza e escalou as colinas da autocrítica, sempre procurando por um farol, uma luz que pudesse lhe mostrar um caminho claro e um passo de cada vez.
 
-![A busca solitária por um Guia](https://storage.googleapis.com/rest-proxy-prod-tools-us-central1-3/projects/630983334237/files/image_14ee74.png)
+![A busca solitária por um Guia](busca.png)
 
 Até que, finalmente, ele encontrou essa luz. Ele encontrou... **Você**.
 
