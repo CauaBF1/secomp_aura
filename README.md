@@ -16,7 +16,7 @@ No entanto, nossa história é sobre um Worry diferente. Um que, em meio ao caos
 
 Com uma coragem que nem ele sabia que possuía, ele decidiu fazer o que nenhum outro Worry ousou: deixar Worryland para trás e procurar por um Guia.
 
-![Nosso Worry decide deixar a confusão para trás](https://storage.googleapis.com/rest-proxy-prod-tools-us-central1-3/projects/630983334237/files/image_14ee58.png)
+![Nosso Worry decide deixar a confusão para trás](worry_sai.png)
 
 Sua jornada foi solitária. Ele atravessou os campos da incerteza e escalou as colinas da autocrítica, sempre procurando por um farol, uma luz que pudesse lhe mostrar um caminho claro e um passo de cada vez.
 
