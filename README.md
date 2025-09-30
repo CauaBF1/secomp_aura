@@ -2,6 +2,6 @@
 
 dentro de /secomp
 
-npm install -g expo-cli
+npm install 
 
 expo start
