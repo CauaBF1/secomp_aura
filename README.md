@@ -37,3 +37,5 @@ Guiados pela filosofia de **"O aluno em primeiro lugar"** (*human-centered techn
 * **O Farol do Foco:** Nossas ferramentas de estatísticas e foco funcionam como um farol, mantendo sua atenção no presente e iluminando seu progresso, para que você nunca mais se sinta perdido na escuridão da sobrecarga.
 
 Nossa motivação é criar uma aliança entre a tecnologia e o bem-estar do estudante. O **Don't Worry!** não é apenas um app; é uma promessa. A promessa de que, com o guia certo, é possível transformar a preocupação em ação e a ansiedade de Worryland em orgulho e realização.
+
+![Worry organizando suas tarefas](estudo.png)
