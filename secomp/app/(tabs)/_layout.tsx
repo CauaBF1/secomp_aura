@@ -34,6 +34,7 @@ export default function TabLayout() {
         name="two"
         options={{
           title: '',
+          headerShown: false,
           tabBarIcon: ({ color }) => <FontAwesome5 name="trophy" size={24} color={color} />,
         }}
       />

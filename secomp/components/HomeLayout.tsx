@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Image } from 'react-native';
 import { Text, View } from './Themed';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
@@ -23,20 +23,27 @@ export default function HomeLayout() {
       <View style={styles.bottomContainer}>
         {/* Container para as duas divs da esquerda */}
         <View style={styles.leftContainer}>
-          {/* Div 3 - Esquerda superior */}
+          {/* Div 3 - Tasks completas com gráfico circular */}
           <View style={styles.leftTopDiv}>
-            <Text style={styles.divText}>Div 3</Text>
+            <View style={styles.circularProgress}>
+              <Text style={styles.percentageText}>50%</Text>
+            </View>
+            <Text style={styles.tasksText}>Tasks{'\n'}completas</Text>
           </View>
 
-          {/* Div 4 - Esquerda inferior */}
+          {/* Div 4 - Start Focusing */}
           <View style={styles.leftBottomDiv}>
-            <Text style={styles.divText}>Div 4</Text>
+            <Text style={styles.focusingText}>Start{'\n'}Focusing</Text>
           </View>
         </View>
 
-        {/* Div 2 - Direita */}
+        {/* Div 2 - Boneco Worry */}
         <View style={styles.rightDiv}>
-          <Text style={styles.divText}>Div 2</Text>
+          <Image 
+            source={require('../assets/images/worry_home.png')} 
+            style={styles.worryImage}
+            resizeMode="contain"
+          />
         </View>
       </View>
     </View>
@@ -54,7 +61,7 @@ const styles = StyleSheet.create({
     width: '100%',
     maxWidth: 600,
     aspectRatio: 1,
-    maxHeight: screenHeight * 0.45,
+    maxHeight: screenHeight * 0.41,
     backgroundColor: 'rgba(166, 133, 171, 0.3)',
     borderRadius: 15,
     alignSelf: 'center',
@@ -108,31 +115,74 @@ const styles = StyleSheet.create({
   },
   leftTopDiv: {
     flex: 1,
-    backgroundColor: '#d0d0d0',
+    backgroundColor: '#F5EFD8',
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: 100,
+    padding: 16,
+  },
+  circularProgress: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    borderWidth: 8,
+    borderColor: '#2D217C',
+    borderLeftColor: 'transparent',
+    borderTopColor: 'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    transform: [{ rotate: '135deg' }],
+    marginBottom: 12,
+  },
+  percentageText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#2D217C',
+    transform: [{ rotate: '-135deg' }],
+  },
+  tasksText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#2D217C',
+    textAlign: 'center',
+    lineHeight: 22,
   },
   leftBottomDiv: {
     flex: 1,
-    backgroundColor: '#c0c0c0',
+    backgroundColor: '#F4EFDD',
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: 100,
+    padding: 16,
+  },
+  focusingText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#2D217C',
+    textAlign: 'center',
+    lineHeight: 24,
   },
   rightDiv: {
     flex: 1,
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#F4EFDD',
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: 100,
+    position: 'relative',
   },
-  divText: {
-    fontSize: screenWidth > 400 ? 18 : 16,
+  worryImage: {
+    width: '800%',
+    height: '300%',
+    maxWidth: 350,
+    maxHeight: 500,
+    
+  },
+  badgeText: {
+    fontSize: 16,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#FFFFFF',
   },
 });
