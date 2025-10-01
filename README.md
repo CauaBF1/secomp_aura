@@ -513,4 +513,111 @@ if __name__ == '__main__':
         threaded=True
     )
 ```
+## Parte 4: Deploy e Acesso ao Servidor na Magalu Cloud
+
+Para o hackathon, utilizamos um **Servidor Virtual (VM) da Magalu Cloud** como peça central da nossa infraestrutura. Ele cumpriu um duplo propósito: hospedar a versão web pública do nosso MVP (deploy de produção) e servir como um ambiente de desenvolvimento e testes para a equipe.
+
+Abaixo estão os dois guias: o primeiro para o deploy da versão final com Nginx, e o segundo para o acesso de desenvolvedores via SSH para rodar o ambiente de desenvolvimento.
+
+---
+
+### A. Deploy da Versão Web de Produção com Nginx
+
+Este processo descreve como publicamos a versão estática e otimizada do nosso aplicativo na web.
+
+#### 1. Produto Utilizado: Servidor Virtual
+Utilizamos uma VM Linux da Magalu Cloud, que nos ofereceu total controle sobre o ambiente para instalar um servidor web Nginx e hospedar nossa aplicação.
+
+#### 2. Processo de Deploy (Passo a Passo)
+
+1.  **Preparação do Ambiente:** Acessamos o servidor e transferimos os arquivos do projeto para o diretório `/var/www/secomp/`.
+
+2.  **Instalação do Web Server (Nginx):** Instalamos o Nginx, um servidor web de alta performance, para servir os arquivos estáticos da nossa aplicação.
+    ```bash
+    sudo apt update && sudo apt install nginx
+    ```
+
+3.  **Build da Aplicação Frontend:** Executamos o comando de build do Expo para gerar a pasta `web-build/` com os arquivos HTML, CSS e JavaScript otimizados.
+    ```bash
+    npm run build-web
+    ```
+
+4.  **Configuração do Nginx:** Criamos um arquivo de configuração em `/etc/nginx/sites-available/secomp` para apontar para nossa pasta de build e servir o `index.html`.
+    ```nginx
+    server {
+        listen 80;
+        server_name seu_dominio_ou_ip;
+        root /var/www/secomp/web-build;
+        index index.html;
+
+        location / {
+            try_files $uri $uri/ /index.html;
+        }
+    }
+    ```
+
+5.  **Ativação do Site:** Ativamos a nova configuração e reiniciamos o Nginx para colocar o site no ar.
+    ```bash
+    sudo ln -s /etc/nginx/sites-available/secomp /etc/nginx/sites-enabled/
+    sudo systemctl restart nginx
+    ```
+
+#### 3. Resultado Final 🎉
+Com esses passos, o MVP do "Don't Worry!" tornou-se publicamente acessível através do IP do nosso **Servidor Virtual da Magalu Cloud**, rodando de forma estável na porta 80.
+
+---
+
+### B. Guia de Acesso ao Ambiente de Desenvolvimento (via SSH)
+
+Este guia é para desenvolvedores se conectarem ao servidor para instalar dependências e rodar o ambiente de desenvolvimento do Expo em tempo real.
+
+#### 1. Pré-requisitos
+
+* Um terminal com cliente SSH.
+* Sua **chave SSH privada** correspondente à chave pública (`ssh-ed25519...`) configurada no servidor.
+
+#### 2. Conectando ao Servidor
+
+Use o comando SSH com seu usuário e o IP do servidor. Tente `borgescaua` ou `ubuntu` como nome de usuário.
+```bash
+# Conecte-se usando o IP fornecido
+ssh borgescaua@201.23.72.235
+```
+#### 3. Executando o Projeto
+
+Após conectar:
+
+1.  **Navegue até o diretório do projeto:**
+    ```bash
+    cd /var/www/secomp
+    ```
+
+2.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
+
+3.  **Inicie o servidor de desenvolvimento do Expo:**
+    ```bash
+    npx expo start
+    ```
+
+#### 4. Dicas Importantes
+
+* **Manter o Servidor Rodando:** Para que o `npx expo start` não morra ao fechar o terminal, use uma ferramenta como o `pm2`:
+    ```bash
+    # Instalar PM2 (uma vez)
+    npm install -g pm2
+    
+    # Iniciar o app com PM2
+    pm2 start "npx expo start" --name "dont-worry-dev"
+    ```
+
+* **Acesso via Navegador:** O servidor de desenvolvimento do Expo rodará em uma porta específica (ex: `8081`). Acesse-o em: `http://201.23.72.235:8081`. Lembre-se de liberar essa porta no firewall da Magalu Cloud, se necessário.
+
+* **Problemas de Permissão com a Chave?** Se receber um erro de permissões "too open" no seu computador local, execute:
+    ```bash
+    # No seu computador (Linux/macOS)
+    chmod 600 ~/.ssh/id_ed25519
+    ```
 
