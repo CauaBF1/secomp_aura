@@ -52,7 +52,9 @@ A jornada começa no momento em que o usuário se conecta. Não se trata apenas 
 * **Conexão com a História:** Este é o momento em que o usuário atende ao chamado do Worry perdido e assume oficialmente o papel de Guia. Dar um nome ao Worry o transforma de uma criatura abstrata em uma responsabilidade pessoal e um parceiro de jornada.
 
 ![Tela de Login](login.png)
+*
 ![Tela de Cadastro](cadastro.png)
+*
 ![Tela para Nomear o Worry](nomear.png)
 
 ### 2. Tutorial Interativo: Aprendendo o Caminho
