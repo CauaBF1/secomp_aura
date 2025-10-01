@@ -50,11 +50,12 @@ A jornada começa no momento em que o usuário se conecta. Não se trata apenas 
 
 * **Funcionalidade:** O usuário pode se cadastrar rapidamente usando seu e-mail ou contas do Google/Apple. O passo mais importante do cadastro é quando ele dá um nome ao seu Worry, criando um vínculo pessoal e imediato com seu novo companheiro de estudos.
 * **Conexão com a História:** Este é o momento em que o usuário atende ao chamado do Worry perdido e assume oficialmente o papel de Guia. Dar um nome ao Worry o transforma de uma criatura abstrata em uma responsabilidade pessoal e um parceiro de jornada.
-
+* 
+#
 ![Tela de Login](login.png)
-*
+#
 ![Tela de Cadastro](cadastro.png)
-*
+#
 ![Tela para Nomear o Worry](nomear.png)
 
 ### 2. Tutorial Interativo: Aprendendo o Caminho
