@@ -81,6 +81,8 @@ Ao selecionar uma tarefa, o usuário pode iniciar um timer de foco, baseado em t
 * **Funcionalidade:** Um timer de foco ajuda o usuário a se concentrar em uma única tarefa por um período determinado, sem distrações. A conclusão de um ciclo de foco é registrada como progresso na tarefa.
 * **Conexão com a História:** O timer é o "farol" que mencionamos na história. Ele corta a névoa de distrações do mundo real, permitindo que o usuário e seu Worry deem um passo focado e significativo de cada vez. É a ferramenta que combate diretamente a "análise-parálise" de Worryland.
 
+![Tela Focus](focus.png)
+#
 ![Tela Timer](timer.png)
 
 ### 5. Meu Perfil e Gamificação: A Evolução do seu Worry
@@ -91,3 +93,5 @@ A tela de perfil é onde a jornada de crescimento se torna visível, tanto para 
 * **Conexão com a História:** Esta tela é a prova da evolução. O usuário pode ver, através de dados e da aparência de seu Worry, o quão longe eles chegaram. Um Worry customizado e feliz não é apenas um avatar enfeitado; ele é um símbolo de todas as "montanhas de tarefas" que foram superadas, representando a transformação da ansiedade em confiança e realização.
 
 ![Tela Perfil](perfil.png)
+#
+![Tela Ranking](ranking.png)
